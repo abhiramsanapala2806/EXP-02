@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopZone</title>
+
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:Arial;background:#f4f5f7}            
+        
+        header{
+            background:linear-gradient(90deg,#6415d9,#2478f5);
+            color:white;padding:15px 7%;
+            display:flex;gap:20px;align-items:center
+        }
+        .logo{font-size:24px;font-weight:bold}
+        input{width:60%;padding:10px;border:0}
+        button{padding:10px;background:#ff9f00;color:white;border:0;cursor:pointer}
+
+        nav{
+            background:white;padding:12px;text-align:center
+        }
+        nav a{margin:20px;text-decoration:none;color:#333}
+
+        .hero{
+            background:linear-gradient(110deg,#7620d8,#297ff5);
+            color:white;padding:45px 15%;
+        }
+        .hero h1{font-size:35px}
+        .hero span{color:#ffca28}
+
+        .container{width:90%;margin:auto}
+        h2{text-align:center;margin:25px}
+
+        .categories,.products{
+            display:grid;
+            grid-template-columns:repeat(6,1fr);
+            gap:15px
+        }
+
+        .category,.product{
+            background:white;padding:15px;
+            text-align:center;border-radius:8px;
+            box-shadow:0 2px 8px #ddd
+        }
+
+        .category{font-size:25px}
+        .category p{font-size:14px}
+
+        .product-image{
+            font-size:50px;
+            padding:20px;
+            background:#eaf2ff
+        }
+
+        .product h3{margin:10px}
+        .price{color:#e91e63;font-weight:bold}
+        .old{text-decoration:line-through;color:gray;font-size:12px}
+
+        .cart{
+            width:100%;margin-top:10px;
+            background:#6415d9
+        }
+
+        .offer{
+            margin:30px 0;
+            padding:25px;
+            text-align:center;
+            background:#dd2476;
+            color:white;
+            font-size:22px
+        }
+
+        @media(max-width:700px){
+            .categories,.products{
+                grid-template-columns:repeat(2,1fr)
+            }
+            header{flex-wrap:wrap}
+            input{width:100%}
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ShopZone</div>
+    <input type="text" placeholder="Search products...">
+    <button>Search</button>
+    <span>👤 Login 🛒 Cart</span>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">Products</a>
+    <a href="#">Offers</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Shop Smart.<br>Shop <span>Better.</span></h1>
+    <p>Discover amazing products at amazing prices.</p>
+    <button>Shop Now →</button>
+</section>
+
+<div class="container">
+
+<h2>Shop By <span>Category</span></h2>
+
+<div class="categories">
+    <div class="category">📱<p>Mobiles</p></div>
+    <div class="category">💻<p>Laptops</p></div>
+    <div class="category">👕<p>Fashion</p></div>
+    <div class="category">👟<p>Footwear</p></div>
+    <div class="category">🎧<p>Electronics</p></div>
+    <div class="category">🏠<p>Home</p></div>
+</div>
+
+<h2>Trending <span>Products</span></h2>
+
+<div class="products">
+
+    <div class="product">
+        <div class="product-image">📱</div>
+        <h3>Smart Phone</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Latest 5G Smartphone</p>
+        <p class="price">₹24,999 <span class="old">₹31,999</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-image">💻</div>
+        <h3>Premium Laptop</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Powerful Laptop</p>
+        <p class="price">₹59,999 <span class="old">₹69,999</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-image">🎧</div>
+        <h3>Headphones</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Noise Cancellation</p>
+        <p class="price">₹2,999 <span class="old">₹4,299</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-image">⌚</div>
+        <h3>Smart Watch</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Fitness Tracker</p>
+        <p class="price">₹3,999 <span class="old">₹5,999</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-image">👟</div>
+        <h3>Sports Shoes</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Running Shoes</p>
+        <p class="price">₹1,799 <span class="old">₹2,999</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-image">🎒</div>
+        <h3>Backpack</h3>
+        ⭐⭐⭐⭐⭐
+        <p>Laptop Backpack</p>
+        <p class="price">₹1,299 <span class="old">₹1,999</span></p>
+        <button class="cart">🛒 Add to Cart</button>
+    </div>
+
+</div>
+
+<div class="offer">🔥 Special Offers – Shop Now & Save More! 🔥</div>
+
+</div>
+
+</body>
+</html>
