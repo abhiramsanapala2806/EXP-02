@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #4e9206;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: rgb(203, 55, 55);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(41, 27, 169);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: rgb(33, 6, 124);
+            color: rgb(222, 151, 9);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Demo Registration Form</h2>
+
+    <form onsubmit="return checkAge()">
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="Enter mobile number" pattern="[0-9]{10}" required>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
+
+<script>
+function checkAge() {
+
+    let dob = new Date(document.getElementById("dob").value);
+    let today = new Date();
+
+    let age = today.getFullYear() - dob.getFullYear();
+
+    let month = today.getMonth() - dob.getMonth();
+
+    if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
+        age--;
+    }
+
+    if (age < 18) {
+        alert("Your Age is: " + age + "\n\nBelow 18 years are not allowed to open this site!");
+        return false;
+    } else {
+        alert("Your Age is: " + age + "\n\nAccess Granted!");
+        return true;
+    }
+}
+</script>
+
+</body>
+</html>
