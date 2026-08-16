@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* LEFT SIDE */
+        .welcome-section {
+            width: 60%;
+            background-color: #155486;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome-section h1 {
+            font-size: 52px;
+            margin-bottom: 35px;
+        }
+
+        .user-icon {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+        }
+
+        /* RIGHT SIDE */
+        .login-section {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* LOGIN BOX */
+        .login-box {
+            width: 465px;
+            min-height: 430px;
+            border: 1px solid #d0d0d0;
+            border-radius: 10px;
+            padding: 55px 34px;
+            background-color: white;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: #155486;
+            font-size: 28px;
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            height: 45px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #bdbdbd;
+            border-radius: 5px;
+            margin-bottom: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #155486;
+        }
+
+        .login-btn,
+        .register-btn {
+            width: 100%;
+            height: 47px;
+            background-color: #155486;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover,
+        .register-btn:hover {
+            background-color: #0e4168;
+        }
+
+        .register-text {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 22px;
+        }
+
+        .register-text a {
+            color: #155486;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           REGISTER POPUP
+           ========================= */
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.50);
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 1000;
+        }
+
+        .popup-box {
+            width: 525px;
+            background-color: white;
+            border-radius: 9px;
+            padding: 55px 34px 35px 34px;
+            position: relative;
+        }
+
+        .popup-box h2 {
+            text-align: center;
+            color: #155486;
+            font-size: 28px;
+            margin-bottom: 22px;
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            right: 30px;
+            top: 25px;
+
+            color: red;
+            font-size: 27px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: darkred;
+        }
+
+        .popup-box input {
+            margin-bottom: 16px;
+        }
+
+        .register-btn {
+            margin-top: 2px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            body {
+                flex-direction: column;
+            }
+
+            .welcome-section,
+            .login-section {
+                width: 100%;
+            }
+
+            .welcome-section {
+                height: 300px;
+            }
+
+            .welcome-section h1 {
+                font-size: 40px;
+            }
+
+            .login-section {
+                padding: 40px 20px;
+            }
+
+            .login-box {
+                width: 100%;
+                max-width: 465px;
+            }
+
+            .popup-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         LEFT WELCOME SECTION
+         ========================= -->
+
+    <div class="welcome-section">
+
+        <h1>Welcome</h1>
+
+        <div class="user-icon">
+            👤
+        </div>
+
+        <p>Login to access your account</p>
+
+    </div>
+
+
+    <!-- =========================
+         LOGIN SECTION
+         ========================= -->
+
+    <div class="login-section">
+
+        <div class="login-box">
+
+            <h2>Login</h2>
+
+            <form onsubmit="loginUser(event)">
+
+                <label for="loginEmail">Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="loginPassword">Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <div class="register-text">
+
+                Don't have an account?
+
+                <a onclick="openRegister()">
+                    Register Here
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         REGISTER POPUP
+         ========================= -->
+
+    <div class="popup" id="registerPopup">
+
+        <div class="popup-box">
+
+            <!-- CLOSE BUTTON -->
+            <span class="close-btn" onclick="closeRegister()">
+                ×
+            </span>
+
+
+            <h2>Create Account</h2>
+
+
+            <form onsubmit="registerUser(event)">
+
+                <!-- NAME -->
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <!-- PHONE -->
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+
+                <!-- EMAIL -->
+                <label for="registerEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <!-- PASSWORD -->
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create password"
+                    required
+                >
+
+
+                <!-- CONFIRM PASSWORD -->
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                >
+
+
+                <!-- REGISTER BUTTON -->
+                <button type="submit" class="register-btn">
+                    Register
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script>
+
+        // OPEN REGISTER POPUP
+        function openRegister() {
+
+            document.getElementById("registerPopup").style.display = "flex";
+
+        }
+
+
+        // CLOSE REGISTER POPUP
+        function closeRegister() {
+
+            document.getElementById("registerPopup").style.display = "none";
+
+        }
+
+
+        // REGISTER USER
+        function registerUser(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("registerEmail").value;
+            let password = document.getElementById("registerPassword").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+
+            // CHECK PASSWORD
+            if (password !== confirmPassword) {
+
+                alert("Passwords do not match!");
+
+                return;
+            }
+
+
+            alert("Registration Successful!");
+
+
+            // CLOSE POPUP
+            closeRegister();
+
+
+            // CLEAR FORM
+            document.querySelector(".popup-box form").reset();
+
+        }
+
+
+        // LOGIN
+        function loginUser(event) {
+
+            event.preventDefault();
+
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+
+
+            if (email === "" || password === "") {
+
+                alert("Please enter Email and Password!");
+
+                return;
+            }
+
+
+            alert("Login Successful!");
+
+        }
+
+
+        // CLOSE POPUP WHEN CLICKING OUTSIDE
+        window.onclick = function(event) {
+
+            let popup = document.getElementById("registerPopup");
+
+            if (event.target === popup) {
+
+                closeRegister();
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
