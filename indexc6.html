@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Arithmetic Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 12px;
+        }
+
+        .container {
+            width: 650px;
+            margin: auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #12548a;
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            box-sizing: border-box;
+            border: 1px solid #777;
+        }
+
+        #result {
+            background-color: #e7f1f8;
+            padding: 18px;
+            margin-top: 25px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #result span {
+            color: #b22222;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 23px;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #12548a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 13px 18px;
+            margin: 8px 10px 8px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d3e66;
+        }
+    </style>
+
+    <!-- Internal JavaScript -->
+    <script>
+        function addNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result = num1 + num2;
+
+            document.getElementById("answer").innerHTML = result;
+        }
+
+        function subtractNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result = num1 - num2;
+
+            document.getElementById("answer").innerHTML = result;
+        }
+
+        function multiplyNumbers() {
+
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result = num1 * num2;
+
+            document.getElementById("answer").innerHTML = result;
+        }
+
+
+        function divideNumbers() {
+
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+
+        if (num2 === 0) {
+
+        document.getElementById("answer").innerHTML =
+         "Cannot divide by zero";
+
+    } else {
+
+        let result = num1 / num2;
+
+        document.getElementById("answer").innerHTML = result;
+    }
+}
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>JavaScript Arithmetic Demo</h1>
+
+        <label>First Number</label>
+        <input type="number" id="num1" placeholder="Enter first number">
+
+        <label>Second Number</label>
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div id="result">
+            Result: <span id="answer">0</span>
+        </div>
+
+        <!-- Internal JavaScript -->
+        <h2>Internal JavaScript</h2>
+
+        <button onclick="addNumbers()">Add</button>
+        <button onclick="subtractNumbers()">Subtract</button>
+
+
+        <!-- External JavaScript -->
+        <h2>External JavaScript</h2>
+
+        <button onclick="multiplyNumbers()">Multiply</button>
+        <button onclick="divideNumbers()">Divide</button>
+
+
+        <!-- Inline JavaScript -->
+        <h2>Inline JavaScript</h2>
+
+        <button onclick="document.getElementById('answer').innerHTML =
+        Number(document.getElementById('answer').innerHTML) + 1">
+            Increment
+        </button>
+
+        <button onclick="document.getElementById('answer').innerHTML =
+        Number(document.getElementById('answer').innerHTML) - 1">
+            Decrement
+        </button>
+
+        <button onclick="document.getElementById('num1').value='';
+        document.getElementById('num2').value='';
+        document.getElementById('answer').innerHTML='0'">
+            Clear
+        </button>
+
+        <button onclick="alert('Hi! Welcome to JavaScript Arithmetic Demo')">
+            click here to say hi
+        </button>
+
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
