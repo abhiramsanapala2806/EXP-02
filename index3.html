@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Static Web App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to GitHub Pages</h1>
+
+    <p>
+        This website is deployed using GitHub Actions.
+    </p>
+
+    <button onclick="showMessage()">
+        Show Message
+    </button>
+
+    <script>
+        function showMessage() {
+            alert("Website Successfully Deployed!");
+        }
+    </script>
+
+</body>
+</html>
